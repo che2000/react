@@ -1,0 +1,112 @@
+@import '@/lib/reset.scss';
+
+html, body, #root, .container{
+	@include rect(100%, 100%)
+}
+#backTop{
+	position: absolute;
+	bottom: 0.55rem;
+	right:0.05rem
+}
+.container{
+	@include flexbox();
+	@include flex-direction(column);
+	.main{
+		@include flex();
+		@include rect(100%, auto);
+		@include flexbox();
+		@include flex-direction(column)
+		header{
+			@include rect(100%,0.45rem);
+			@include background-color(#f66);
+			@include flexbox();
+			.left, .center, .right{
+				@include flexbox();
+				@include flex-direction(column);
+				@include justify-content();
+				@include align-items();
+			}
+			.left{
+				@include rect(0.3rem,100%);
+			}
+			.center{
+				@include flex();
+				@include rect(auto,100%);
+			}
+			.right{
+				@include rect(0.3rem,100%);
+			}
+		}
+		.content{
+			@include flex();
+			@include rect(100%, auto);
+			@include overflow();
+			
+			.prolist{
+				li{
+					@include rect(100%,1rem);
+					@include border(0 0 1px 0, #ccc);
+					@include flexbox()
+					img{
+						@include rect(0.9rem,0.9rem);
+						@include margin(0.05rem)
+					}
+					.proinfo{
+						@include flex()
+					}
+				}
+			}
+			&.kindContent{
+				@include flexbox()
+				.kindMenu{
+					@include rect(1rem, 100%);
+
+					@include overflow();
+					@include border(0 1px 0 0, #ccc)
+					
+					li{
+						@include border(0 0 1px 0, #ccc);
+						@include rect(100%, 0.6rem);
+						@include flexbox();
+						@include flex-direction(column);
+						@include justify-content();
+						@include align-items();
+						
+						&.active{
+							@include text-color(#f66)
+						}
+					}
+				}
+				.kindList{
+					@include flex();
+					@include rect(auto, 100%);
+
+					@include overflow()
+				}
+			}
+		}
+	}
+	footer{
+		@include rect(100%,0.50rem);
+		@include background-color(#ccc);
+		
+		ul{
+			@include rect(100%, 100%);
+			@include flexbox();
+			li{
+				@include flex();
+				@include flexbox();
+				@include flex-direction(column);
+				@include justify-content();
+				@include align-items();
+				@include rect(auto,100%)
+				a{
+					@include text-color(#333)
+					&.active{
+						@include text-color(#f66)
+					}
+				}
+			}
+		}
+	}
+}
